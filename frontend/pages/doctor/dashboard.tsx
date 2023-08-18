@@ -4,10 +4,12 @@ import ResolvedCards from "@/components/ResolvedCards";
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col md:flex-row gap-5 justify-between p-5">
+    <div>
       <DoctorHeader />
-      <ResolvedCards />
-      <Content />
+      <div className="flex flex-col md:flex-row gap-5 justify-between p-5">
+        <ResolvedCards />
+        <Content />
+      </div>
     </div>
   );
 };

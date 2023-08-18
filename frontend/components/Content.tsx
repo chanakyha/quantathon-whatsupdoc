@@ -20,7 +20,7 @@ import {
 } from "@tanstack/react-table";
 
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -65,7 +65,7 @@ const SelectButton = ({ value }: { value: string }) => {
 const data: Payment[] = [
   {
     dateTime: "7:00pm • 18/08/23",
-    amount: 316,
+
     name: "Chanakyha",
     applicationNumber: "#WD7431",
     status: <SelectButton value="ongoing" />,
@@ -73,32 +73,32 @@ const data: Payment[] = [
   },
   {
     dateTime: "6:00pm • 18/08/23",
-    amount: 242,
-    name: "Chanakyha",
+
+    name: "Ashwin",
     applicationNumber: "#WD7432",
-    status: <SelectButton value="ongoing" />,
+    status: <SelectButton value="completed" />,
     whatsappNumber: "+917550148119",
   },
   {
     dateTime: "8:00am • 18/08/23",
-    amount: 837,
-    name: "Chanakyha",
+
+    name: "Ragul",
     applicationNumber: "#WD7433",
     status: <SelectButton value="ongoing" />,
     whatsappNumber: "+917550148119",
   },
   {
     dateTime: "4:00pm • 18/08/23",
-    amount: 874,
-    name: "Chanakyha",
+
+    name: "Charan",
     applicationNumber: "#WD7434",
     status: <SelectButton value="ongoing" />,
     whatsappNumber: "+917550148119",
   },
   {
     dateTime: "7:00pm • 18/08/23",
-    amount: 721,
-    name: "Chanakyha",
+
+    name: "Nithin",
     applicationNumber: "#WD7435",
     status: <SelectButton value="ongoing" />,
     whatsappNumber: "+917550148119",
@@ -106,7 +106,6 @@ const data: Payment[] = [
 ];
 
 export type Payment = {
-  amount: number;
   status: React.ReactNode;
   applicationNumber: string;
   name: string;
@@ -146,9 +145,9 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "whatsappNumber",
     header: () => <div className="">Whatsapp Number</div>,
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("whatsappNumber"));
-
-      return <div className="font-medium">234</div>;
+      return (
+        <div className="font-medium">{row.getValue("whatsappNumber")}</div>
+      );
     },
   },
   {
@@ -174,16 +173,9 @@ export const columns: ColumnDef<Payment>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() =>
-                navigator.clipboard.writeText(payment.applicationNumber)
-              }
-            >
-              Copy payment ID
+            <DropdownMenuItem className="bg-red-500 text-white focus:bg-red-800 focus:text-white/90 cursor-pointer">
+              Delete Appointment
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );
@@ -223,17 +215,17 @@ export default function DataTableDemo() {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          placeholder="Search by Name..."
+          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
-              Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
+              Filters <ChevronDownIcon className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -306,30 +298,6 @@ export default function DataTableDemo() {
             )}
           </TableBody>
         </Table>
-      </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
-        </div>
-        <div className="space-x-2">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
-            Previous
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-          >
-            Next
-          </Button>
-        </div>
       </div>
     </div>
   );
