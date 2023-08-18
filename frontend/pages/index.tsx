@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/context";
 import {
   Card,
   CardContent,
@@ -14,6 +15,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function Home() {
+  const { user } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
   const [username, setUsername] = useState<string>("");
@@ -37,6 +39,16 @@ export default function Home() {
         console.log(err);
       });
   };
+
+  useEffect(() => {
+    if (!user.username) return;
+
+    if (user?.username.split("@")[1] === "doctor.wd") {
+      router.push("/doctor/dashboard");
+    } else if (user?.username.split("@")[1] === "ambulance.wd") {
+      router.push("/driver/dashboard");
+    }
+  }, [user]);
 
   return (
     <main

@@ -1,8 +1,17 @@
 import Content from "@/components/Content";
 import DoctorHeader from "@/components/DoctorHeader";
 import ResolvedCards from "@/components/ResolvedCards";
+import { useAuth } from "@/context";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Dashboard = () => {
+  const { user } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!user) router.push("/");
+  }, [user]);
   return (
     <div>
       <DoctorHeader />

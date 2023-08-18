@@ -249,7 +249,7 @@ export default function DataTableDemo() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md bg-white border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
