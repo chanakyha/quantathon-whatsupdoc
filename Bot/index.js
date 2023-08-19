@@ -34,33 +34,54 @@ client.on("qr", (qr) => {
   // console.log('QR RECEIVED', qr);
 });
 
-
-client.on('ready', () => {
-  console.log('Client is ready!');
+client.on("ready", () => {
+  console.log("Client is ready!");
 });
-let state = ""
-client.on('message', msg => {
-  const content = msg.body
-  console.log(msg.body)
-  if (content === 'Hi') {
-      client.sendMessage(msg.from,"Hello,How can I help you?")
+let state = "";
+client.on("message", (msg) => {
+  const content = msg.body;
+  console.log(msg.body);
+  if (content === "Hi") {
+    client.sendMessage(msg.from, "Hello,How can I help you?");
   }
-  if (content.includes('appointment') || content.includes('Appointment')){
-      state = 'doctor'
-      client.sendMessage(msg.from,"Yes, Sure I can do that please share your Pincode");
+  if (content.includes("appointment") || content.includes("Appointment")) {
+    state = "doctor";
+    client.sendMessage(
+      msg.from,
+      "Yes, Sure I can do that please share your Pincode"
+    );
   }
-  if (content.includes('600')){
-      if (state === 'doctor'){
-          client.sendMessage(msg.from,` Will send the appointment to nearest doctors in ${pincode[content]}`)
-          client.sendMessage(msg.from,"You will soon receive the confrimation from the doctors");
-      } else {
-          client.sendMessage(msg.from,` Will send the nearest ambulance in ${pincode[content]} to you shortly`)
-          client.sendMessage(msg.from,"You will soon receive the contact details of ambulance driver");
-      }
+  if (content.includes("600")) {
+    if (state === "doctor") {
+      client.sendMessage(
+        msg.from,
+        ` Will send the appointment to nearest doctors in ${pincode[content]}`
+      );
+      client.sendMessage(
+        msg.from,
+        "You will soon receive the conformation from the doctors"
+      );
+    } else {
+      client.sendMessage(
+        msg.from,
+        ` Will send the nearest ambulance in ${pincode[content]} to you shortly`
+      );
+      client.sendMessage(
+        msg.from,
+        "You will soon receive the contact details of ambulance driver"
+      );
+    }
   }
-  if (content.includes('emergerncy') || content.includes('Emergency') || content.includes('EMERGENCY')){
-      state = 'emergency';
-      client.sendMessage(msg.from,"Yes, Sure I will send the ambulance to your location,please share your Location");
+  if (
+    content.includes("emergerncy") ||
+    content.includes("Emergency") ||
+    content.includes("EMERGENCY")
+  ) {
+    state = "emergency";
+    client.sendMessage(
+      msg.from,
+      "Yes, Sure I will send the ambulance to your location,please share your Location"
+    );
   }
 });
 

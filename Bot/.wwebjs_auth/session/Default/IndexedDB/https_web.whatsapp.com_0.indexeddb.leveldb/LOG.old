@@ -1,13 +1,14 @@
-2023/08/19-03:00:51.839 4ec8 Reusing MANIFEST E:\Hackathons\Quantathon\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2023/08/19-03:00:51.840 4ec8 Recovering log #35
-2023/08/19-03:00:52.115 4ec8 Reusing old log E:\Hackathons\Quantathon\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000035.log 
-2023/08/19-03:01:07.128 3358 Level-0 table #40: started
-2023/08/19-03:01:07.224 3358 Level-0 table #40: 1263158 bytes OK
-2023/08/19-03:01:07.241 3358 Delete type=0 #35
-2023/08/19-03:01:07.338 3358 Compacting 1@1 + 1@2 files
-2023/08/19-03:01:07.573 3358 Generated table #41@1: 60137 keys, 2262470 bytes
-2023/08/19-03:01:07.612 3358 Generated table #42@1: 7396 keys, 127929 bytes
-2023/08/19-03:01:07.613 3358 Compacted 1@1 + 1@2 files => 2390399 bytes
-2023/08/19-03:01:07.627 3358 compacted to: files[ 0 0 2 0 0 0 0 ]
-2023/08/19-03:01:07.628 3358 Delete type=2 #37
-2023/08/19-03:01:07.628 3358 Delete type=2 #40
+2023/08/19-06:07:08.847 f903 Reusing MANIFEST /Users/chanakyha/github/quantathon-hackathon/Bot/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/08/19-06:07:08.847 f903 Recovering log #39
+2023/08/19-06:07:08.889 f903 Reusing old log /Users/chanakyha/github/quantathon-hackathon/Bot/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000039.log 
+2023/08/19-06:08:21.214 1f803 Level-0 table #45: started
+2023/08/19-06:08:21.242 1f803 Level-0 table #45: 1272225 bytes OK
+2023/08/19-06:08:21.252 1f803 Delete type=0 #39
+2023/08/19-06:08:22.326 1f803 Compacting 1@1 + 2@2 files
+2023/08/19-06:08:22.414 1f803 Generated table #46@1: 60484 keys, 2268971 bytes
+2023/08/19-06:08:22.427 1f803 Generated table #47@1: 12107 keys, 278581 bytes
+2023/08/19-06:08:22.427 1f803 Compacted 1@1 + 2@2 files => 2547552 bytes
+2023/08/19-06:08:22.435 1f803 compacted to: files[ 0 0 2 0 0 0 0 ]
+2023/08/19-06:08:22.435 1f803 Delete type=2 #42
+2023/08/19-06:08:22.435 1f803 Delete type=2 #41
+2023/08/19-06:08:22.435 1f803 Delete type=2 #45
