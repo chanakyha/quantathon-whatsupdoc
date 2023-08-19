@@ -21,6 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 type userType = "doctor" | "ambulance" | string;
 
@@ -99,7 +100,14 @@ export default function Register() {
     <main
       className={`flex min-h-screen gap-10 px-10 md:px-0 flex-col items-center justify-center`}
     >
-      <Card className="p-5 absolute left-5 top-5">LOGO</Card>
+      <div className="fixed left-5 top-5">
+        <Image
+          height={200}
+          width={200}
+          className="h-20 w-15"
+          src={require("@/public/assets/images/logo.png")}
+        />
+      </div>
       <Card className="w-full md:w-96">
         <CardHeader>
           <CardTitle>Register</CardTitle>

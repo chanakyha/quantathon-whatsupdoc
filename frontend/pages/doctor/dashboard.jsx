@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <div>
       <DoctorHeader />
-      <div className="flex flex-col md:flex-row gap-5 justify-between p-5">
+      <div className="flex flex-col justify-between gap-10 p-5 md:flex-row">
         <ResolvedCards />
         <Content />
       </div>

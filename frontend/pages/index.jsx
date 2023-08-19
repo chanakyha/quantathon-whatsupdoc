@@ -13,13 +13,14 @@ import { useRouter } from "next/router";
 import { auth } from "@/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useToast } from "@/components/ui/use-toast";
+import Image from "next/image";
 
 export default function Home() {
   const { user } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const loginfunc = () => {
     signInWithEmailAndPassword(auth, username, password)
@@ -54,7 +55,15 @@ export default function Home() {
     <main
       className={`flex min-h-screen gap-10 px-10 md:px-0 flex-col items-center justify-center`}
     >
-      <Card className="p-5 absolute left-5 top-5">LOGO</Card>
+      <div className="fixed left-5 top-5">
+        <Image
+          height={200}
+          width={200}
+          className="h-20 w-15 "
+          src={require("@/public/assets/images/logo.png")}
+        />
+      </div>
+
       <Card className="w-full md:w-96">
         <CardHeader>
           <CardTitle>Login</CardTitle>
