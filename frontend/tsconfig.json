@@ -22,7 +22,10 @@
     "**/*.ts",
     "**/*.tsx",
     "context.jsx",
-    "components/DoctorHeader.jsx"
+    "components/DoctorHeader.jsx",
+    "pages/doctor/dashboard.jsx",
+    "pages/index.jsx",
+    "pages/driver/dashboard.jsx"
   ],
   "exclude": ["node_modules"]
 }
